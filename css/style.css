@@ -1,0 +1,772 @@
+body,
+input,
+select
+{
+	font-family: 'Nunito Sans', sans-serif;
+	font-size: 1em;
+}
+
+body
+{
+	margin: 0;
+	background-color: #2F2933;
+	padding: 4em 1em 1em 1em;
+}
+
+body *
+{
+	cursor: url('/images/ui/cursor.png') 9 9, pointer;
+	-webkit-user-select: none; /* Chrome/Safari */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
+
+	/* Rules below not implemented in browsers yet */
+	-o-user-select: none;
+	user-select: none;
+}
+
+page
+{
+	position: relative;
+	display: block;
+}
+
+#map
+{
+	position: fixed;
+	height: 100%;
+	left: 50%; right: 0;
+	top: 0; bottom: 0;
+	transform: translateX(-50%);
+}
+
+body,
+input,
+select
+{
+	color: #2F2933;
+}
+
+a
+{
+	color: #01A2A6;
+	text-decoration: none;
+}
+
+a:hover
+{
+	opacity: .7;
+}
+
+body div.pixel_container
+{
+	background-color: #514658;
+	margin-top: -1em;
+	margin-bottom: -1em;
+	margin-left: -1em;
+	padding-right: 2.4em;
+}
+
+img.pixel
+{
+	image-rendering: pixelated;
+	position: absolute;
+	top:50%;
+	left:50%;
+	transform: translate(-50%,-50%);
+	width: 80%;
+	height: auto;
+	transition: all .5s ease;
+}
+
+div.pixel_container:hover img.pixel
+{
+	transform: scale(1.1) translate(-45%,-45%);
+}
+
+container
+{
+	display: block;
+	margin: 0 auto;
+	max-width: 50em;
+	padding-bottom: 4em;
+}
+
+content
+{
+	display: block;
+	padding: 1em;
+	background-color: #FFF;
+	margin-bottom: 1em;
+	position: relative;
+}
+
+content-menu
+{
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 4;
+}
+
+content-menu toggle
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 2em;
+	height: 2em;
+	text-align: center;
+	font-weight: bold;
+	/*cursor: pointer;*/
+	font-size: 1.5em;
+}
+
+content-menu menu-content
+{
+	position: absolute;
+	top: 2em;
+	right: 1em;
+	width: 10em;
+	background-color: #FFF;
+	padding: 1em;
+	border: 1px solid #01A2A6;
+}
+
+content-menu menu-content button:first-child
+{
+	margin-top: 0;
+}
+
+.good
+{
+	color: #01A2A6;
+}
+
+.bad
+{
+	color: #F44336;
+}
+
+.bad .inline_icon
+{
+	background-color: #F44336;
+}
+
+.inline
+{
+	display: inline;
+}
+
+button,
+.button,
+input[type="submit"]
+{
+	color: #fff;
+	background-color: #01A2A6;
+	padding: 0.75em 0;
+	width: 100%;
+	box-sizing: border-box;
+	border: 0;
+	font-weight: bold;
+	text-transform: uppercase;
+	outline: none;
+	/*cursor: pointer;*/
+	margin-top: 1em;
+	font-size: 1.1em;
+	display: block;
+	text-align: center;
+	border: 2px solid #01A2A6;
+	transition: all .2s ease;
+}
+
+button:hover,
+.button:hover,
+input[type="submit"]:hover
+{
+	background-color: rgba(1,162,166,0.8);
+}
+
+button.alt,
+.button.alt,
+input[type="submit"].alt
+{
+	background-color: #2F2933;
+	border-color: #2F2933;
+}
+
+button.alt:hover,
+.button.alt:hover,
+input[type="submit"].alt:hover
+{
+	background-color: rgba(47,41,51,0.8);
+}
+
+button.secondary,
+.button.secondary,
+input[type="submit"].secondary
+{
+	background: transparent;
+	color: #01A2A6;
+}
+
+button.secondary:hover,
+.button.secondary:hover,
+input[type="submit"].secondary:hover
+{
+	background-color: rgba(1,162,166,0.1);
+}
+
+button.inline,
+.button.inline,
+input[type="submit"].inline
+{
+	width: auto;
+	display: inline-block;
+	padding: 0.75em 2em;
+}
+
+button.loading,
+.button.loading,
+input[type="submit"].loading
+{
+	padding: 2em;
+	color: transparent;
+	position: relative;
+}
+
+button.loading::after,
+.button.loading::after,
+input[type="submit"].loading::after
+{
+	background-image: url("/images/loading.svg");
+	background-position: center;
+	background-size: auto 50%;
+	background-repeat: no-repeat;
+	position: absolute;
+	content: "";
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: calc(50% - 2.5em);
+	width: 5em;
+	animation: loading .5s linear infinite;
+}
+
+@keyframes loading {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+.centered,
+.centered,
+.centered
+{
+	margin-left: 50%;
+	transform: translateX(-50%);
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+select
+{
+	padding: 1.2em 0.75em 0.3em 0.75em;
+	border: 0;
+	background-color: #FFF;
+	border: 2px solid #01A2A6;
+	color: #01A2A6;
+	font-size: 1.1em;
+	outline: none;
+	width: 100%;
+	box-sizing: border-box;
+	position: relative;
+	margin-top: 1em;
+	font-weight: bold;
+	min-width: 8em;
+}
+
+input[type="text"] + label,
+input[type="password"] + label,
+input[type="number"] + label,
+select + label
+{
+	position: relative;
+	height: 0;
+	display: block;
+	top: -2.35em;
+	left: 0.75em;
+	opacity: 0.4;
+	pointer-events: none;
+	font-weight: bold;
+}
+
+input[type="text"].ng-not-empty + label,
+input[type="text"]:focus + label,
+input[type="password"].ng-not-empty + label,
+input[type="password"]:focus + label,
+input[type="number"].ng-not-empty + label,
+input[type="number"]:focus + label,
+select + label
+{
+	top: -4em;
+	font-size: 0.7em;
+    left: 1.3em;
+}
+
+input[type="text"]:focus + label,
+input[type="password"]:focus + label,
+input[type="number"]:focus + label,
+select + label
+{
+	color: #01A2A6;
+	opacity: 1;
+}
+
+input[type="text"].small + label,
+input[type="password"].small + label,
+input[type="number"].small + label,
+select.small + label
+{
+	top: -3.4em;
+	font-size: 0.7em;
+	left: 1.1em;
+}
+
+input[type="text"].ng-not-empty.ng-invalid,
+input[type="password"].ng-not-empty.ng-invalid,
+input[type="number"].ng-not-empty.ng-invalid,
+select.ng-not-empty.ng-invalid,
+.ng-submitted .ng-invalid
+{
+	border-color: #F44336;
+}
+
+/* Change the white to any color ;) */
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #FFF inset;
+}
+
+.small
+{
+	font-size: 0.8em;
+}
+
+.headless
+{
+	margin-top: 0!important;
+}
+
+.bottomless
+{
+	margin-bottom: 0!important;
+}
+
+.floatright
+{
+	float: right;
+}
+
+.floatleft
+{
+	float: left;
+}
+
+h1
+{
+	font-size: 5em;
+	font-weight: normal;
+	text-align: center;
+	margin:0.5em 0;
+	color: #01A2A6;
+}
+
+h1,
+h2,
+h3,
+h4
+{
+	color: #01A2A6;
+	margin: 0.4em 0;
+}
+
+flex
+{
+	display: flex;
+}
+
+flex > *
+{
+	flex-basis: 100%;
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+	position: relative;
+}
+
+flex > *.quarter
+{
+	flex-basis: 25%;
+}
+
+flex > *:last-child
+{
+	margin-right: 0;
+}
+flex > *:first-child
+{
+	margin-left: 0;
+}
+
+header
+{
+	position: fixed;
+	z-index: 5;
+	background-color: #01A2A6;
+	color: #fff;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 3em;
+	padding: 0.5em 1em;
+	box-sizing: border-box;
+}
+
+header a
+{
+	color: #fff;
+}
+
+header .logo
+{
+	float: left;
+	background: url("/images/logo_inverted.svg") no-repeat left center;
+	background-size: contain;
+	text-indent: -999px;
+	display: block;
+	width: 6em;
+	height: 2.5em;
+	margin-top: -0.25em;
+}
+
+.main_logo
+{
+	background: url("/images/logo.svg") no-repeat center;
+	background-size: contain;
+	height: 2em;
+}
+
+header header-menu
+{
+	float: right;
+	margin-top: 0.3em;
+}
+
+footer
+{
+	position: fixed;
+	bottom: 1em;
+	left: 1em;
+	z-index: 4;
+}
+
+footer a
+{
+	display: block;
+	width: 4em;
+	height: 4em;
+	background-color: #514658;
+	margin-top: 1em;
+	color: #fff;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 70%;
+	transition: 0.3s ease;
+	position: relative;
+}
+
+footer a:hover
+{
+	opacity: 1;
+	background-color: #695b71;
+}
+
+footer a.active
+{
+	background-color: #01A2A6;
+}
+
+footer a.planets
+{
+	background-image: url("/images/ui/planet.svg");
+}
+
+footer a.map
+{
+	background-image: url("/images/ui/map.svg");
+}
+
+footer a.friends
+{
+	background-image: url("/images/ui/friends.svg");
+}
+
+footer a.blueprints
+{
+	background-image: url("/images/ui/blueprints.svg");
+}
+
+footer a.research
+{
+	background-image: url("/images/ui/research.svg");
+}
+
+footer a.tasks
+{
+	background-image: url("/images/ui/tasks.svg");
+}
+
+footer a.fleets
+{
+	background-image: url("/images/ui/fleets.svg");
+}
+
+footer a span
+{
+	position: absolute;
+	top: 50%;
+	left: 4.5em;
+	transform: translateX(0) translateY(-50%);
+	transition: all .5s ease;
+}
+
+footer a:hover span,
+footer a.active span
+{
+	transform: translateX(1em) translateY(-50%);
+}
+
+footer a.active span
+{
+	font-weight: bold;
+	color: #01A2A6;
+}
+
+config-boxes
+{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.config_box
+{
+	display: block;
+	width: calc(20% - 0.8em);
+	height: 6em;
+	background-color: #01A2A6;
+	color: #fff;
+	text-align: center;
+	margin-right: 1em;
+	box-sizing: border-box;
+	padding: 1em 0.5em;
+	position: relative;
+	margin-top: 1em;
+}
+
+.config_box:nth-of-type(5)
+{
+	margin-right: 0;
+}
+
+.config_box.bad
+{
+	background-color: #F44336;
+}
+
+.config_box .config_name
+{
+	display: block;
+	font-size: 0.8em;
+}
+
+.config_box .config_multiplier
+{
+	font-size: 1.3em;
+	position: absolute;
+	top: 60%;
+	left: 0;
+	right: 0;
+	text-align: center;
+	transform: translateY(-50%);
+}
+
+.content_title
+{
+	color: #fff;
+	margin-bottom: 0;
+	font-weight: normal;
+	font-size: 3em;
+}
+
+notifications
+{
+	position: fixed;
+	z-index: 10;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+
+notification
+{
+	display: block;
+	background: #BDF271;
+	color: #2F2933;
+	padding: 0.5em 0;
+	font-weight: bold;
+	text-align: center;
+	animation: notifications 4s ease;
+	overflow: hidden;
+	height: 0;
+	padding: 0;
+	margin-bottom: 0;
+}
+
+@keyframes notifications {
+	0% {
+		height: 0;
+		padding: 0;
+		margin-bottom: 0em;
+	}
+	10% {
+		height: 1.2em;
+		padding: 0.5em 0;
+		margin-bottom: 0.2em;
+	}
+	90% {
+		height: 1.2em;
+		padding: 0.5em 0;
+		margin-bottom: 0.2em;
+	}
+	100% {
+		height: 0;
+		padding: 0;
+		margin-bottom: 0em;
+	}
+}
+
+notification.bad
+{
+	background: #F44336;
+	color: #fff;
+}
+
+clearfix,
+.clearfix
+{
+	display: block;
+	clear: both;
+}
+
+select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+popup
+{
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	z-index: 9;
+	padding-top: 4em;
+	background-color: rgba(47,41,51,0.8);
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+close
+{
+	position: absolute;
+	top: 1em;
+	right: 1em;
+	width: 2em;
+	height: 2em;
+	cursor: pointer;
+}
+
+close::after
+{
+	position: absolute;
+	left: 0.5em; top: 0.5em; bottom: 0.5em; right: 0.5em;
+	content: "";
+	-webkit-mask-image: url("/images/ui/close.svg");
+	mask-image: url("/images/ui/close.svg");
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	-webkit-mask-size: contain;
+	mask-size: contain;
+	background-color: #2F2933;
+	transition: all .2s ease;
+}
+
+close:hover::after
+{
+	transform: scale(1.5);
+	background-color: #01A2A6;
+}
+
+.inline_icon
+{
+
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	-webkit-mask-size: cover;
+	mask-size: cover;
+	-webkit-mask-position: center;
+	mask-position: center;
+	margin: 0 0.2em;
+	background-color: #01A2A6;
+}
+
+.energy
+{
+	-webkit-mask-image: url("/images/ui/energy.svg");
+	mask-image: url("/images/ui/energy.svg");
+	padding: 0 0.5em;
+}
+
+.metal
+{
+	-webkit-mask-image: url("/images/ui/metal.svg");
+	mask-image: url("/images/ui/metal.svg");
+	padding: 0 0.85em;
+}
+
+blueprint-research
+{
+	display: block;
+	padding: 0.5em;
+	background-color: #514658;
+	color: #fff;
+	text-align: center;
+	cursor: pointer;
+	margin-top: 1em;
+}
+
+blueprint-research.selected
+{
+	background-color: #01A2A6;
+}
+
+blueprint-research:hover
+{
+	opacity: 0.8;
+}
