@@ -2,17 +2,17 @@
 
 	<h1 class="main_logo"></h1>
 
-	<form name="login_form" ng-submit="login_form.$valid && account.login(username, password)" novalidate ng-show="mode == 'login'">
+	<form name="login_form" ng-submit="login_form.$valid && account.login(username)" novalidate ng-show="mode == 'login'">
 
 		<flex>
 			<div>
 				<input type="text" ng-model="username" minlength="4" maxlength="24" required>
 				<label>Username</label>
 			</div>
-			<div>
+			<!-- <div>
 				<input type="password" ng-model="password" minlength="4" maxlength="24" required>
 				<label>Password</label>
-			</div>
+			</div> -->
 		</flex>
 		<input type="submit" value="Login">
 

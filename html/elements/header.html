@@ -1,0 +1,10 @@
+<a href="#/" class="logo">StarField</a>
+<header-menu ng-show="account.data.loggedin">
+	<a href ng-click="account.logout()">Logout</a>
+</header-menu>
+
+<notifications>
+	<notification ng-repeat="notification in notifications.notifications" class="{{notification.type}}">
+		{{notification.message}}
+	</notification>
+</notifications>

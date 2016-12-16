@@ -15,11 +15,15 @@
 
 		<script src="/controllers/ctrl_login.js"></script>
 		<script src="/controllers/ctrl_dash.js"></script>
+		<script src="/controllers/ctrl_header.js"></script>
 
 		<script src="/services/srvs_account.js"></script>
 		<script src="/services/srvs_socket.js"></script>
+		<script src="/services/srvs_players.js"></script>
+		<script src="/services/srvs_games.js"></script>
 	</head>
 	<body ng-app="client">
+		<header ng-controller="headerCtrl" ng-include="'/html/elements/header.html'"></header>
 		<container ng-view></container>
 	</body>
 </html>

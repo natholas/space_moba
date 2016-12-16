@@ -19,7 +19,7 @@ client.config(function($routeProvider) {
 	$routeProvider
 	.when('/', {
         templateUrl: '/html/pages/dash.html',
-        controller: "loginCtrl"
+        controller: "dashCtrl"
     })
 	.when('/login', {
         templateUrl: '/html/pages/login.html',
