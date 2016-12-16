@@ -27,24 +27,35 @@ game.renderer = new function() {
 
 		// Drawing each unit
 		data.units.forEach(function(unit) {
-			var pos = $this.screen_space_pos(unit.pos);
-			$this.draw_unit(pos, unit.target, 100);
-			if (data.hover_item) return;
-			if (unit.owner.id != data.player_data.id) return;
+			var pos = $this.screen_space_pos(unit.lerped_pos);
 
-			$this.check_hover(pos, unit, 40);
+			if (unit.owner.id == data.player_data.id) {
 
-			if (unit == data.selected_item) {
-				$this.draw_circle(pos, 60, '#FFF');
+				if (!data.hover_item) {
+					$this.check_hover(pos, unit, 40);
+				}
+
+				if (data.selected_item && unit.id == data.selected_item.id) {
+					$this.draw_circle(pos, 60, '#FFF');
+				}
+				if (unit.target.x != unit.lerped_pos.x) {
+					var target_pos = $this.screen_space_pos(unit.target);
+					$this.draw_circle(target_pos, 4, "red");
+					$this.draw_line(pos, target_pos, "red");
+				}
 			}
+			$this.draw_unit(pos, unit.rotation, unit.target, 100);
 
-
-		})
+		});
 
 	}
 
-	this.draw_unit = function (pos, target, size) {
-		ctx.drawImage(data.images.spaceship, pos.x - size / 2, pos.y - size / 2, size, size);
+	this.draw_unit = function (pos, rot, target, size) {
+	    ctx.save();
+	    ctx.translate(pos.x, pos.y);
+	    ctx.rotate(rot*Math.PI/180);
+		ctx.drawImage(data.images.spaceship, -size / 2, -size / 2, size, size);
+		ctx.restore();
 	}
 
 	this.draw_circle = function (pos, size, colour) {
@@ -59,6 +70,14 @@ game.renderer = new function() {
 	this.draw_map = function (pos, size) {
 		ctx.fillStyle="#625d7d";
 		ctx.fillRect(pos.x - size / 2, pos.y - size / 2, size, size);
+	}
+
+	this.draw_line = function (start, end, colour) {
+		ctx.beginPath();
+		ctx.moveTo(start.x,start.y);
+		ctx.lineTo(end.x,end.y);
+		ctx.stroke();
+		ctx.closePath();
 	}
 
 	this.screen_space_pos = function (pos) {

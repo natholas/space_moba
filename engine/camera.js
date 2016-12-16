@@ -32,11 +32,11 @@ game.camera = new function() {
 			if (e.button == 0) {
 				data.selected_item = data.hover_item;
 			} else if (e.button == 2 && data.selected_item) {
-				var target_pos = {
-					"x": data.mouse_pos.x - canvas.width / 2,
-					"y": data.mouse_pos.y - canvas.height / 2
+				data.target_pos = {
+					"x": parseInt(data.mouse_pos.x - data.cam_pos.x - canvas.width / 2),
+					"y": parseInt(data.mouse_pos.y - data.cam_pos.y - canvas.height / 2)
 				}
-				console.log(target_pos);
+				Socket.conn.emit("set_target", data.selected_item.id, data.target_pos);
 			}
 		});
 

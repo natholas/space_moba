@@ -15,6 +15,7 @@ client.service("Account", function($q, $location, $timeout) {
 			data.loggedin = true;
 			data.username = username;
 			data.id = response;
+			console.log(data);
 			$location.path("/");
 			$timeout();
 		});
