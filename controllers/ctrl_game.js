@@ -1,6 +1,6 @@
-client.controller("gameCtrl", function($scope, Game) {
+client.controller("gameCtrl", function($scope, Game, Account) {
 
-	game.start(Game.data.data);
+	game.start(Game.data.data, Account.data);
 
 	$scope.game = Game.data;
 

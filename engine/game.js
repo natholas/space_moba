@@ -5,8 +5,10 @@ var game = new function() {
 
 		$this.renderer.game = $this;
 		$this.data.game = $this;
+		$this.camera.game = $this;
 		$this.renderer.start();
 		$this.data.start(game_data);
+		$this.camera.start();
 
 		$this.update();
 
@@ -15,10 +17,11 @@ var game = new function() {
 	this.update = function () {
 
 		$this.renderer.update();
+		$this.camera.update();
 
 		setTimeout(function () {
 			$this.update();
-		});
+		},100);
 
 	}
 }

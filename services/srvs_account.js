@@ -14,6 +14,7 @@ client.service("Account", function($q, $location, $timeout) {
 		Socket.conn.emit("login", {username: username}, function(response) {
 			data.loggedin = true;
 			data.username = username;
+			data.id = response;
 			$location.path("/");
 			$timeout();
 		});

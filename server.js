@@ -7,6 +7,8 @@ var connections = [];
 var games = [];
 var players_per_game = 2;
 var min_players_per_game = 2;
+var units_per_player = 1;
+var world_size = 1000;
 
 server.listen(process.env.PORT || 3000);
 
@@ -30,8 +32,7 @@ io.sockets.on('connection', function(socket) {
 	// Disconnect
 	socket.on("disconnect", function(data) {
 		if (socket.username) {
-			var existing_game = find_game_by_player_id(socket.id);
-			if (existing_game) existing_game.player_disconnected(socket.id, null);
+			if (socket.game) socket.game.player_disconnected(socket.id, null);
 			users.splice(users.indexOf(socket.username), 1);
 		}
 		updateUserNames();
@@ -44,7 +45,7 @@ io.sockets.on('connection', function(socket) {
 	// Login
 	socket.on("login", function(data, callback) {
 		socket.username = data.username;
-		callback(true);
+		callback(socket.id);
 		if (users.indexOf(data.username) < 0) {
 			users.push(data.username);
 			updateUserNames();
@@ -135,10 +136,19 @@ io.sockets.on('connection', function(socket) {
 
 	function game() {
 		var $this = this;
-		this.data = {status: 0, players: []};
+		this.data = {status: 0, players: [], units: [], world_size: world_size};
 		var data = $this.data;
 		this.start = function () {
+			// Updating the status
 			data.status = 2;
+
+			// Spawning the units
+			for (var i in data.players) {
+				for (var ii = 0; ii < units_per_player; ii ++) {
+					data.units.push(new unit(data.players[i]));
+				}
+			}
+
 			$this.update();
 		}
 
@@ -171,3 +181,16 @@ io.sockets.on('connection', function(socket) {
 	}
 
 });
+
+function unit(player) {
+	var $this = this;
+	this.owner = player;
+	this.pos = {
+		"x": 0,
+		"y": 0
+	}
+	this.target = {
+		"x": 0,
+		"y": 0
+	}
+}
