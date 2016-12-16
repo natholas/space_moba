@@ -1,4 +1,4 @@
-client.controller("dashCtrl", function($scope, Account, Games) {
+client.controller("dashCtrl", function($scope, Account, Game) {
 	$scope.account = Account;
-	$scope.games = Games;
+	$scope.game = Game;
 });

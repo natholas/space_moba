@@ -1,4 +1,4 @@
-client.service("Account", function(Socket, $q, $location, $timeout) {
+client.service("Account", function($q, $location, $timeout) {
 
 	this.data = {};
 	var data = this.data;
@@ -15,7 +15,7 @@ client.service("Account", function(Socket, $q, $location, $timeout) {
 			data.loggedin = true;
 			data.username = username;
 			$location.path("/");
-			$timeout(function() {});
+			$timeout();
 		});
 	}
 

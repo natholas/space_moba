@@ -13,7 +13,7 @@ body
 	padding: 4em 1em 1em 1em;
 }
 
-body *
+body, body *
 {
 	cursor: url('/images/ui/cursor.png') 9 9, pointer;
 	-webkit-user-select: none; /* Chrome/Safari */
@@ -31,13 +31,34 @@ page
 	display: block;
 }
 
-#map
+ui
+{
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 8;
+	color: #fff;
+	padding: 1em;
+}
+
+ui ul
+{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+canvas
 {
 	position: fixed;
 	height: 100%;
 	left: 50%; right: 0;
 	top: 0; bottom: 0;
 	transform: translateX(-50%);
+	z-index: 6;
+	background-color: #000;
 }
 
 body,
